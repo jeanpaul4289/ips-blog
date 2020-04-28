@@ -1,0 +1,96 @@
+html, body {
+    background-color: #fff;
+    color: #101010;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    height: 100vh;
+    margin: 0;
+}
+
+.content {
+    width: 897px;
+    margin: 0 auto;
+    padding: 77px 0;
+}
+
+.leftcolumn {
+    float: left;
+    width: 62.4%;
+}
+
+.rightcolumn {
+    float: right;
+    width: 30%;
+    background: #F5F5F5;
+    margin-top: 77px;
+    padding: 50px 23px 50px 26px;
+    height: 638px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.title {
+    h1 {
+        font-weight: bold;
+        font-size: 26px;
+        line-height: 31px;
+    }
+    
+    .divider {
+        background: #AC519C;
+        background: linear-gradient(90deg, #AC519C 0.83%, #E5424F 100%);
+        height: 2px;
+        border: 0;
+        margin: 14px 0 28px;
+    }
+}
+
+.card {
+    h2 {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 22px;
+        margin-top: 20px;
+    }
+    
+    p {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        word-spacing: 1.1px;
+        margin-top: 18px;
+    }
+    img {
+        margin: 27px 0 21px;
+    }
+}
+
+button {
+    background: #AC519C;
+    background: linear-gradient(90deg, #AC519C 0.83%, #E5424F 100%);
+    font-size: 15px;
+    line-height: 13px;
+    text-align: center;
+    color: #FFFFFF;
+    border: 0;
+    padding: 13px;
+    width: 100%;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+}
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on 
+top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {
+        width: 100%;
+        padding: 0;
+    }
+}
