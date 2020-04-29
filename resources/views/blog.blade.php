@@ -9,7 +9,11 @@
 		<div class="card">
 			<p>How do you capture more interesting travel photos with your iPhone? How do you avoid taking the same cliché vacation photos that everyone else takes? I recently interviewed Steffen Geldner – a talented iPhone photographer with a passion for travel. In this article, Steffen reveals 7 tips for shooting beautiful travel photos that will preserve the amazing memories of your trip. Read on to discover how to take better travel photos with your iPhone!</p>
 		</div>
-		<img src="/images/img.jpg" alt="Plane Flying" />
+		<picture>
+			<source srcset="/images/img@2x.jpg" media="(min-resolution: 192dpi)">
+			<source srcset="/images/img@3x.jpg" media="min-resolution: 288dpi)">
+			<img src="/images/img.jpg" alt="Plane Flying" />
+		</picture>
 		<div class="card">
 			<h2>1. Research Your Destination To Find The Best Photo Opportunities</h2>
 			<p>Before your trip, I recommend researching the destination to find the most interesting photo opportunities.</p>
