@@ -15,7 +15,7 @@ html {
 
 html,
 body {
-  background-color: #ffffff;
+  background-color: #fff;
   color: #101010;
   font-family: "Lato", sans-serif;
   font-style: normal;
@@ -25,28 +25,30 @@ body {
 
 .content {
   margin: 0 auto;
+  max-width: 897px;
   padding: 77px 0;
-  width: 897px;
 }
 
 .leftcolumn {
-  float: left;
-  width: 62.4%;
+  padding: 0;
+  width: 100%;
 }
 
 .rightcolumn {
   background: #f5f5f5;
-  float: right;
-  height: 638px;
-  margin-top: 77px;
-  padding: 50px 23px 50px 26px;
-  width: 30%;
+  height: 45vh;
+  margin: 32px 17px;
+  padding: 34px 30px;
 }
 
 .row::after {
   clear: both;
   content: "";
   display: table;
+}
+
+.title {
+  padding: 0 17px;
 }
 
 .title h1 {
@@ -60,6 +62,10 @@ body {
   border: 0;
   height: 2px;
   margin: 14px 0 28px;
+}
+
+.card {
+  padding: 0 17px;
 }
 
 .card h2 {
@@ -78,32 +84,52 @@ body {
   word-spacing: 1.1px;
 }
 
-.card img {
+img {
   margin: 27px 0 21px;
+  width: 100%;
 }
 
 button {
   background: linear-gradient(90deg, #ac519c 0.83%, #e5424f 100%);
   border: 0;
-  color: #ffffff;
+  color: #fff;
   cursor: pointer;
   font-family: "Lato", sans-serif;
-  font-size: 15px;
+  font-size: 22px;
+  height: 50px;
   line-height: 13px;
-  padding: 13px;
+  padding: 16px;
   text-align: center;
   width: 100%;
 }
 
 button:hover {
-  background: linear-gradient(90deg, #B678AA 0.83%, #E28990 100%);
+  background: linear-gradient(90deg, #b678aa 0.83%, #e28990 100%);
 }
 
-@media screen and (max-width: 800px) {
-  .leftcolumn,
+@media screen and (min-width: 992px) {
+  .leftcolumn {
+    float: left;
+    width: 62.4%;
+  }
+
   .rightcolumn {
+    float: right;
+    height: 638px;
+    margin-top: 77px;
+    padding: 50px 23px 50px 26px;
+    width: 30%;
+  }
+
+  .title,
+  .card {
     padding: 0;
-    width: 100%;
+  }
+
+  button {
+    font-size: 15px;
+    height: auto;
+    padding: 13px;
   }
 }
 
@@ -113,7 +139,7 @@ button:hover {
   height: 100%;
   left: 0;
   overflow: auto;
-  padding-top: 322px;
+  padding: 182px 17px 0;
   position: fixed;
   top: 0;
   width: 100%;
@@ -122,11 +148,11 @@ button:hover {
 
 .modal-content {
   background-color: #fefefe;
-  height: 310px;
   margin: auto;
-  padding: 18px 65px;
+  max-width: 570px;
+  min-height: 310px;
+  padding: 18px;
   position: relative;
-  width: 570px;
 }
 
 .modal-content .pagination {
@@ -157,10 +183,14 @@ button:hover {
 
 .modal-content .form h3 {
   color: #464646;
-  font-size: 23px;
+  font-size: 20px;
   font-weight: bold;
   line-height: 28px;
-  text-align: center;
+  text-align: left;
+}
+
+.modal-content .form h3 br.desktop-only {
+  display: none;
 }
 
 .modal-content .form .float-container {
@@ -231,5 +261,30 @@ button:hover {
   color: #000;
   cursor: pointer;
   text-decoration: none;
+}
+
+@media screen and (max-width: 376px) {
+  .modal-content .form .float-container.active label {
+    width: 120%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    padding: 322px 0 0;
+  }
+
+  .modal-content {
+    padding: 18px 65px;
+  }
+
+  .modal-content .form h3 {
+    font-size: 23px;
+    text-align: center;
+  }
+
+  .modal-content .form h3 br.desktop-only {
+    display: block;
+  }
 }
 

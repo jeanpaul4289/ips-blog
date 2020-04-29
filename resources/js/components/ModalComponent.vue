@@ -7,7 +7,7 @@
                 <hr class="step active"><hr class="step">
             </div>
             <div class="form">
-                <h3>Enter Your Email To Get <span class="green">FREE</span><br> iPhone Photography Email Tips:</h3>
+                <h3>Enter Your Email To Get <span class="green">FREE</span><br class="desktop-only"> iPhone Photography Email Tips:</h3>
                 <div class="float-container" v-bind:class="{ active: active }" >
                     <label for="float-field" v-bind:class="{ red: !validEmail }">{{ floatFieldText }}</label>
                     <input id="float-field" type="email"  v-model="email"  v-bind:class="{ red: !validEmail }" @focus="active = true" @blur="handleBlur(this)" v-on:keyup.enter="validateEmail()" />

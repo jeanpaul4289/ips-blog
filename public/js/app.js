@@ -19666,7 +19666,7 @@ var staticRenderFns = [
     return _c("h3", [
       _vm._v("Enter Your Email To Get "),
       _c("span", { staticClass: "green" }, [_vm._v("FREE")]),
-      _c("br"),
+      _c("br", { staticClass: "desktop-only" }),
       _vm._v(" iPhone Photography Email Tips:")
     ])
   }

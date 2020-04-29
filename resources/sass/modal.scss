@@ -5,7 +5,7 @@
   height: 100%; // Full height
   left: 0;
   overflow: auto; // Enable scroll if needed
-  padding-top: 322px; // Location of the box
+  padding: 182px 17px 0; // Location of the box
   position: fixed; // Stay in place
   top: 0;
   width: 100%; // Full width
@@ -15,11 +15,11 @@
 // Modal Content
 .modal-content {
   background-color: $white-modal;
-  height: 310px;
   margin: auto;
-  padding: 18px 65px;
+  max-width: 570px;
+  min-height: 310px;
+  padding: 18px;
   position: relative;
-  width: 570px;
 
   // Modal Pagination
   .pagination {
@@ -49,10 +49,16 @@
 
     h3 {
       color: $tundora;
-      font-size: 23px;
+      font-size: 20px;
       font-weight: bold;
       line-height: 28px;
-      text-align: center;
+      text-align: left;
+
+      br {
+        &.desktop-only {
+          display: none;
+        }
+      }
     }
 
     .float-container {
@@ -126,4 +132,43 @@
     cursor: pointer;
     text-decoration: none;
   }
+}
+
+@media screen and (max-width: $sm) {
+  .modal-content {
+    .form {
+      .float-container {
+        &.active {
+          label {
+            width: 120%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $md) {
+  // The Modal (background)
+  .modal {
+    padding: 322px 0 0; // Location of the box
+  }
+
+  .modal-content {
+    padding: 18px 65px;
+
+    .form {
+      h3 {
+        font-size: 23px;
+        text-align: center;
+  
+        br {
+          &.desktop-only {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
 }
