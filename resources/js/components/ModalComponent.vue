@@ -1,16 +1,16 @@
 <template>
     <div class="modal">
-        <div class="modal-content">
-            <span class="close" @click="closeModal()">&times;</span>
-            <div class="pagination">
+        <div class="modal__content">
+            <span class="modal__close" @click="closeModal()">&times;</span>
+            <div class="modal__pagination">
                 <p>Step 1 of 2</p>
-                <hr class="step active"><hr class="step">
+                <hr class="modal__step modal__step--active"><hr class="modal__step">
             </div>
-            <div class="form">
-                <h3>Enter Your Email To Get <span class="green">FREE</span><br class="desktop-only"> iPhone Photography Email Tips:</h3>
-                <div class="float-container" v-bind:class="{ active: active }" >
-                    <label for="float-field" v-bind:class="{ red: !validEmail }">{{ floatFieldText }}</label>
-                    <input id="float-field" type="email"  v-model="email"  v-bind:class="{ red: !validEmail }" @focus="active = true" @blur="handleBlur(this)" v-on:keyup.enter="validateEmail()" />
+            <div class="modal__form">
+                <h3 class="modal__title">Enter Your Email To Get <span class="modal__title--green">FREE</span><br class="modal__br--desktop-only"> iPhone Photography Email Tips:</h3>
+                <div class="modal__float-container" v-bind:class="{ 'modal__float-container--active': active }" >
+                    <label class="modal__label" for="float-field" v-bind:class="{ 'modal__label--red': !validEmail }">{{ floatFieldText }}</label>
+                    <input class="modal__input" id="float-field" type="email" v-model="email"  v-bind:class="{ 'modal__input--red': !validEmail }" @focus="active = true" @blur="handleBlur(this)" v-on:keyup.enter="validateEmail()" />
                 </div>
                 <button @click="validateEmail()">Send Me The Tips »</button>
             </div>

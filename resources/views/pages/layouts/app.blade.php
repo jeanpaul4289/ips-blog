@@ -11,8 +11,10 @@
     <body>
         <div id="app">
             <div class="content">
-                @yield('content')
-                <modal-component v-show="isModalVisible" @close="closeModal()"></modal-component>
+                <div class="content__row">
+                    @yield('content')
+                    <modal-component v-show="isModalVisible" @close="closeModal()"></modal-component>
+                </div>
             </div>
         </div>
     </body>

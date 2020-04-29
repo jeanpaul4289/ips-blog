@@ -10,95 +10,59 @@
   top: 0;
   width: 100%; // Full width
   z-index: 1; // Sit on top
-}
 
-// Modal Content
-.modal-content {
-  background-color: $white-modal;
-  margin: auto;
-  max-width: 570px;
-  min-height: 310px;
-  padding: 18px;
-  position: relative;
+  // Modal Content
+  &__content {
+    background-color: $white-modal;
+    margin: auto;
+    max-width: 570px;
+    min-height: 310px;
+    padding: 18px;
+    position: relative;
+  }
+
+  // The Close Button
+  &__close {
+    color: $tundora;
+    font-size: 39px;
+    font-weight: bold;
+    position: absolute;
+    right: 11px;
+    top: -2px;
+
+    &:hover,
+    &:focus {
+      color: $black;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
 
   // Modal Pagination
-  .pagination {
+  &__pagination {
     color: $light-gray;
     font-size: 14px;
     font-weight: 300px;
     line-height: 17px;
     text-align: center;
     width: 100%;
+  }
 
-    .step {
-      background: $mercury;
-      border: 0;
-      display: inline-block;
-      height: 3px;
-      margin: 0;
-      width: 50%;
+  &__step {
+    background: $mercury;
+    border: 0;
+    display: inline-block;
+    height: 3px;
+    margin: 0;
+    width: 50%;
 
-      &.active {
-        background: $main-gradient;
-      }
+    &--active {
+      background: $main-gradient;
     }
   }
 
-  .form {
+  &__form {
     padding-top: 18px;
-
-    h3 {
-      color: $tundora;
-      font-size: 20px;
-      font-weight: bold;
-      line-height: 28px;
-      text-align: left;
-
-      br {
-        &.desktop-only {
-          display: none;
-        }
-      }
-    }
-
-    .float-container {
-      position: relative;
-
-      input {
-        border: 0;
-        box-shadow: inset 0 1px 5px $transparent-gray;
-        font-size: 16.8px;
-        height: 54px;
-        letter-spacing: 0;
-        margin: 22px 0;
-        padding: 21px 17px 8px;
-        width: 100%;
-      }
-
-      label {
-        color: $boulder;
-        font-size: 16.8px;
-        left: 17px;
-        letter-spacing: 0;
-        position: absolute;
-        top: 24px;
-        transform: translate(0, 16px) scale(1);
-        transform-origin: top left;
-        transition: all .25s ease-in-out;
-        transition-property: transform, font-size;
-        user-select: none;
-
-        &.red {
-          color: $red;
-        }
-      }
-
-      &.active {
-        label {
-          transform: translate(0, 5.5px) scale(.7);
-        }
-      }
-    }
 
     button {
       font-size: 16px;
@@ -107,41 +71,74 @@
     }
   }
 
-  .green {
-    color: $green;
+  &__title {
+    color: $tundora;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 28px;
+    text-align: left;
+
+    &--green {
+      color: $green;
+    }
   }
 
-  .red {
-    color: $red;
+  &__br {
+    &--desktop-only {
+      display: none;
+    }
   }
 
+  &__float-container {
+    position: relative;
+
+    &--active {
+      .modal__label {
+        transform: translate(0, 5.5px) scale(.7);
+      }
+    }
+  }
+
+  &__input {
+    border: 0;
+    box-shadow: inset 0 1px 5px $transparent-gray;
+    font-size: 16.8px;
+    height: 54px;
+    letter-spacing: 0;
+    margin: 22px 0;
+    padding: 21px 17px 8px;
+    width: 100%;
+
+    &--red {
+      color: $red;
+    }
+  }
+
+  &__label {
+    color: $boulder;
+    font-size: 16.8px;
+    left: 17px;
+    letter-spacing: 0;
+    position: absolute;
+    top: 24px;
+    transform: translate(0, 16px) scale(1);
+    transform-origin: top left;
+    transition: all .25s ease-in-out;
+    transition-property: transform, font-size;
+    user-select: none;
+
+    &--red {
+      color: $red;
+    }
+  }
 }
 
-// The Close Button
-.close {
-  color: $tundora;
-  font-size: 39px;
-  font-weight: bold;
-  position: absolute;
-  right: 11px;
-  top: -2px;
-
-  &:hover,
-  &:focus {
-    color: $black;
-    cursor: pointer;
-    text-decoration: none;
-  }
-}
-
-@media screen and (max-width: $sm) {
-  .modal-content {
-    .form {
-      .float-container {
-        &.active {
-          label {
-            width: 120%;
-          }
+@media screen and (max-width: $xs) {
+  .modal {
+    &__float-container {
+      &--active {
+        .modal__label {
+          width: 120%;
         }
       }
     }
@@ -152,23 +149,21 @@
   // The Modal (background)
   .modal {
     padding: 322px 0 0; // Location of the box
-  }
 
-  .modal-content {
-    padding: 18px 65px;
+    &__content {
+      padding: 18px 65px;
+    }
 
-    .form {
-      h3 {
-        font-size: 23px;
-        text-align: center;
-  
-        br {
-          &.desktop-only {
-            display: block;
-          }
-        }
+    &__title {
+      font-size: 23px;
+      text-align: center;
+    }
+
+    &__br {
+      &--desktop-only {
+        display: block;
       }
     }
-  }
 
+  }
 }

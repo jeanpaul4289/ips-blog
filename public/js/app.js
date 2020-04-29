@@ -19561,11 +19561,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "modal" }, [
-    _c("div", { staticClass: "modal-content" }, [
+    _c("div", { staticClass: "modal__content" }, [
       _c(
         "span",
         {
-          staticClass: "close",
+          staticClass: "modal__close",
           on: {
             click: function($event) {
               return _vm.closeModal()
@@ -19577,17 +19577,21 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "form" }, [
+      _c("div", { staticClass: "modal__form" }, [
         _vm._m(1),
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "float-container", class: { active: _vm.active } },
+          {
+            staticClass: "modal__float-container",
+            class: { "modal__float-container--active": _vm.active }
+          },
           [
             _c(
               "label",
               {
-                class: { red: !_vm.validEmail },
+                staticClass: "modal__label",
+                class: { "modal__label--red": !_vm.validEmail },
                 attrs: { for: "float-field" }
               },
               [_vm._v(_vm._s(_vm.floatFieldText))]
@@ -19602,7 +19606,8 @@ var render = function() {
                   expression: "email"
                 }
               ],
-              class: { red: !_vm.validEmail },
+              staticClass: "modal__input",
+              class: { "modal__input--red": !_vm.validEmail },
               attrs: { id: "float-field", type: "email" },
               domProps: { value: _vm.email },
               on: {
@@ -19652,21 +19657,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pagination" }, [
+    return _c("div", { staticClass: "modal__pagination" }, [
       _c("p", [_vm._v("Step 1 of 2")]),
       _vm._v(" "),
-      _c("hr", { staticClass: "step active" }),
-      _c("hr", { staticClass: "step" })
+      _c("hr", { staticClass: "modal__step modal__step--active" }),
+      _c("hr", { staticClass: "modal__step" })
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h3", [
+    return _c("h3", { staticClass: "modal__title" }, [
       _vm._v("Enter Your Email To Get "),
-      _c("span", { staticClass: "green" }, [_vm._v("FREE")]),
-      _c("br", { staticClass: "desktop-only" }),
+      _c("span", { staticClass: "modal__title--green" }, [_vm._v("FREE")]),
+      _c("br", { staticClass: "modal__br--desktop-only" }),
       _vm._v(" iPhone Photography Email Tips:")
     ])
   }
