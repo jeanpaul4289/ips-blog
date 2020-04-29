@@ -85,6 +85,10 @@ button {
   padding: 13px;
   text-align: center;
   width: 100%;
+
+  &:hover {
+    background: $hover-gradient;
+  }
 }
 
 

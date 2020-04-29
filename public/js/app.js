@@ -1924,7 +1924,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      active: false,
+      email: '',
+      floatFieldText: 'Please enter your email here',
+      validEmail: true
+    };
+  },
+  methods: {
+    closeModal: function closeModal() {
+      this.active = false;
+      this.email = '';
+      this.validEmail = true;
+      this.floatFieldText = 'Please enter your email here';
+      this.$emit('close');
+    },
+    handleBlur: function handleBlur() {
+      if (!this.email.length) {
+        this.active = false;
+        this.validEmail = true;
+        this.floatFieldText = 'Please enter your email here';
+      }
+    },
+    validateEmail: function validateEmail() {
+      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      this.validEmail = re.test(this.email);
+      this.floatFieldText = !this.validEmail ? 'Please enter a valid email address' : 'Please enter your email here';
+    }
+  }
+});
 
 /***/ }),
 
@@ -19535,7 +19568,7 @@ var render = function() {
           staticClass: "close",
           on: {
             click: function($event) {
-              return _vm.$emit("close")
+              return _vm.closeModal()
             }
           }
         },
@@ -19544,7 +19577,73 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _vm._m(1)
+      _c("div", { staticClass: "form" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "float-container", class: { active: _vm.active } },
+          [
+            _c(
+              "label",
+              {
+                class: { red: !_vm.validEmail },
+                attrs: { for: "float-field" }
+              },
+              [_vm._v(_vm._s(_vm.floatFieldText))]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.email,
+                  expression: "email"
+                }
+              ],
+              class: { red: !_vm.validEmail },
+              attrs: { id: "float-field", type: "email" },
+              domProps: { value: _vm.email },
+              on: {
+                focus: function($event) {
+                  _vm.active = true
+                },
+                blur: function($event) {
+                  return _vm.handleBlur(this)
+                },
+                keyup: function($event) {
+                  if (
+                    !$event.type.indexOf("key") &&
+                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                  ) {
+                    return null
+                  }
+                  return _vm.validateEmail()
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.email = $event.target.value
+                }
+              }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            on: {
+              click: function($event) {
+                return _vm.validateEmail()
+              }
+            }
+          },
+          [_vm._v("Send Me The Tips »")]
+        )
+      ])
     ])
   ])
 }
@@ -19564,19 +19663,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form" }, [
-      _c("h3", [
-        _vm._v("Enter Your Email To Get "),
-        _c("span", { staticClass: "green" }, [_vm._v("FREE")]),
-        _c("br"),
-        _vm._v(" iPhone Photography Email Tips:")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: { type: "text", placeholder: "Please enter your email here" }
-      }),
-      _vm._v(" "),
-      _c("button", [_vm._v("Send Me The Tips »")])
+    return _c("h3", [
+      _vm._v("Enter Your Email To Get "),
+      _c("span", { staticClass: "green" }, [_vm._v("FREE")]),
+      _c("br"),
+      _vm._v(" iPhone Photography Email Tips:")
     ])
   }
 ]
